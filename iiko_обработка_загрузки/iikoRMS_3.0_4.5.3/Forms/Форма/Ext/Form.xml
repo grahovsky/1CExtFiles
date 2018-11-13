@@ -2058,6 +2058,12 @@
 												</InputField>
 											</ChildItems>
 										</Table>
+										<Button name="Выполнить" id="240">
+											<Type>UsualButton</Type>
+											<Width>9</Width>
+											<CommandName>Form.Command.Выполнить</CommandName>
+											<ExtendedTooltip name="ВыполнитьExtendedTooltip" id="961"/>
+										</Button>
 									</ChildItems>
 								</Page>
 							</ChildItems>
@@ -2078,12 +2084,6 @@
 										</v8:item>
 									</Title>
 									<ExtendedTooltip name="ЗагрузкаExtendedTooltip" id="960"/>
-								</Button>
-								<Button name="Выполнить" id="240">
-									<Type>UsualButton</Type>
-									<Width>9</Width>
-									<CommandName>Form.Command.Выполнить</CommandName>
-									<ExtendedTooltip name="ВыполнитьExtendedTooltip" id="961"/>
 								</Button>
 								<PictureDecoration name="ДекорацияДлительнаяОперация" id="366">
 									<Visible>false</Visible>

@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.7">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<UsualGroup name="ГруппаПрофили" id="46">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа профили</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа профили</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПрофилиРасширеннаяПодсказка" id="47"/>
+			<ChildItems>
+				<InputField name="СписокПрофилейГруппДоступа" id="43">
+					<DataPath>СписокПрофилейГруппДоступа</DataPath>
+					<MultiLine>true</MultiLine>
+					<ContextMenu name="СписокПрофилейГруппДоступаКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="СписокПрофилейГруппДоступаРасширеннаяПодсказка" id="45"/>
+				</InputField>
+				<Table name="ПрофилиГруппДоступа" id="4">
+					<Representation>List</Representation>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ПрофилиГруппДоступа</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ПрофилиГруппДоступаКонтекстноеМеню" id="5"/>
+					<AutoCommandBar name="ПрофилиГруппДоступаКоманднаяПанель" id="6">
+						<ChildItems>
+							<Button name="ЗаполнитьПрофили" id="23">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ЗаполнитьПрофили</CommandName>
+								<ExtendedTooltip name="ЗаполнитьПрофилиРасширеннаяПодсказка" id="24"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ПрофилиГруппДоступаРасширеннаяПодсказка" id="7"/>
+					<SearchStringAddition name="ПрофилиГруппДоступаСтрокаПоиска" id="8">
+						<AdditionSource>
+							<Item>ПрофилиГруппДоступа</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПрофилиГруппДоступаСтрокаПоискаКонтекстноеМеню" id="9"/>
+						<ExtendedTooltip name="ПрофилиГруппДоступаСтрокаПоискаРасширеннаяПодсказка" id="10"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ПрофилиГруппДоступаСостояниеПросмотра" id="11">
+						<AdditionSource>
+							<Item>ПрофилиГруппДоступа</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПрофилиГруппДоступаСостояниеПросмотраКонтекстноеМеню" id="12"/>
+						<ExtendedTooltip name="ПрофилиГруппДоступаСостояниеПросмотраРасширеннаяПодсказка" id="13"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ПрофилиГруппДоступаУправлениеПоиском" id="14">
+						<AdditionSource>
+							<Item>ПрофилиГруппДоступа</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ПрофилиГруппДоступаУправлениеПоискомКонтекстноеМеню" id="15"/>
+						<ExtendedTooltip name="ПрофилиГруппДоступаУправлениеПоискомРасширеннаяПодсказка" id="16"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<InputField name="ПрофилиГруппДоступаПрофильСсылка" id="20">
+							<DataPath>ПрофилиГруппДоступа.ПрофильСсылка</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПрофилиГруппДоступаПрофильСсылкаКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="ПрофилиГруппДоступаПрофильСсылкаРасширеннаяПодсказка" id="22"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРоль" id="48">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа роль</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа роль</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРольРасширеннаяПодсказка" id="49"/>
+			<ChildItems>
+				<InputField name="Роль" id="1">
+					<DataPath>Роль</DataPath>
+					<ContextMenu name="РольКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="РольРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<Button name="ДобавитьРольВПрофиль" id="25">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ДобавитьРольВПрофили</CommandName>
+					<ExtendedTooltip name="ДобавитьРольВПрофильРасширеннаяПодсказка" id="26"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Роль" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Роль</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ИдентификаторыОбъектовМетаданных</v8:Type>
+			</Type>
+			<Save>
+				<Field>Роль</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ПрофилиГруппДоступа" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Профили групп доступа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПрофилиГруппДоступа</Field>
+			</Save>
+			<Columns>
+				<Column name="ПрофильСсылка" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Профиль ссылка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ПрофилиГруппДоступа</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="СписокПрофилейГруппДоступа" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список профилей групп доступа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>СписокПрофилейГруппДоступа</Field>
+			</Save>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьПрофили" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить профили</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить профили</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьПрофили</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ДобавитьРольВПрофили" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить роль в профили</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить роль в профили</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДобавитьРольВПрофили</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

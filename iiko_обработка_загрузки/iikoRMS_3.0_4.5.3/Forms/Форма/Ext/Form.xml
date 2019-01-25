@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5">
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.7">
 	<Title>
 		<v8:item>
 			<v8:lang>ru</v8:lang>
@@ -594,6 +594,7 @@
 											<AutoInsertNewRow>true</AutoInsertNewRow>
 											<EnableStartDrag>true</EnableStartDrag>
 											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
 											<DataPath>Объект.Контрагенты</DataPath>
 											<SearchStringLocation>None</SearchStringLocation>
 											<ViewStatusLocation>None</ViewStatusLocation>
@@ -791,6 +792,7 @@
 											<AutoInsertNewRow>true</AutoInsertNewRow>
 											<EnableStartDrag>true</EnableStartDrag>
 											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
 											<DataPath>Объект.БухгалтерскаяКатегория</DataPath>
 											<SearchStringLocation>None</SearchStringLocation>
 											<ViewStatusLocation>None</ViewStatusLocation>
@@ -932,6 +934,7 @@
 											<AutoInsertNewRow>true</AutoInsertNewRow>
 											<EnableStartDrag>true</EnableStartDrag>
 											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
 											<DataPath>Объект.Номенклатура</DataPath>
 											<SearchStringLocation>None</SearchStringLocation>
 											<ViewStatusLocation>None</ViewStatusLocation>
@@ -1117,6 +1120,7 @@
 											<AutoInsertNewRow>true</AutoInsertNewRow>
 											<EnableStartDrag>true</EnableStartDrag>
 											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
 											<DataPath>Объект.Склады</DataPath>
 											<SearchStringLocation>None</SearchStringLocation>
 											<ViewStatusLocation>None</ViewStatusLocation>
@@ -1284,6 +1288,7 @@
 											<AutoInsertNewRow>true</AutoInsertNewRow>
 											<EnableStartDrag>true</EnableStartDrag>
 											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
 											<DataPath>Объект.ВидыОплаты</DataPath>
 											<SearchStringLocation>None</SearchStringLocation>
 											<ViewStatusLocation>None</ViewStatusLocation>
@@ -1403,6 +1408,7 @@
 											<AutoInsertNewRow>true</AutoInsertNewRow>
 											<EnableStartDrag>true</EnableStartDrag>
 											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
 											<DataPath>Объект.Группировка</DataPath>
 											<SearchStringLocation>None</SearchStringLocation>
 											<ViewStatusLocation>None</ViewStatusLocation>
@@ -1586,6 +1592,7 @@
 											<AutoInsertNewRow>true</AutoInsertNewRow>
 											<EnableStartDrag>true</EnableStartDrag>
 											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
 											<DataPath>Объект.ВидыОплатыСчета</DataPath>
 											<SearchStringLocation>None</SearchStringLocation>
 											<ViewStatusLocation>None</ViewStatusLocation>
@@ -1698,6 +1705,7 @@
 											<AutoInsertNewRow>true</AutoInsertNewRow>
 											<EnableStartDrag>true</EnableStartDrag>
 											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
 											<DataPath>Объект.Статьи</DataPath>
 											<SearchStringLocation>None</SearchStringLocation>
 											<ViewStatusLocation>None</ViewStatusLocation>
@@ -1790,6 +1798,7 @@
 											<AutoInsertNewRow>true</AutoInsertNewRow>
 											<EnableStartDrag>true</EnableStartDrag>
 											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
 											<DataPath>Объект.ФизЛица</DataPath>
 											<SearchStringLocation>None</SearchStringLocation>
 											<ViewStatusLocation>None</ViewStatusLocation>
@@ -1889,6 +1898,7 @@
 											<AutoInsertNewRow>true</AutoInsertNewRow>
 											<EnableStartDrag>true</EnableStartDrag>
 											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
 											<DataPath>Объект.Докум</DataPath>
 											<SearchStringLocation>None</SearchStringLocation>
 											<ViewStatusLocation>None</ViewStatusLocation>
@@ -2101,6 +2111,7 @@
 										<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
 									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
 									<ContextMenu name="ДекорацияДлительнаяОперацияКонтекстноеМеню" id="367"/>
 									<ExtendedTooltip name="ДекорацияДлительнаяОперацияExtendedTooltip" id="962"/>
 								</PictureDecoration>
@@ -2663,6 +2674,7 @@
 											<AutoInsertNewRow>true</AutoInsertNewRow>
 											<EnableStartDrag>true</EnableStartDrag>
 											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
 											<DataPath>ТаблицаЕдиницыИзмерений</DataPath>
 											<SearchStringLocation>None</SearchStringLocation>
 											<ViewStatusLocation>None</ViewStatusLocation>
@@ -4543,6 +4555,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ВыбратьВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="СнятьВсе" id="2">
 			<Title>
@@ -4558,6 +4571,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СнятьВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="Загрузка" id="3">
 			<Title>
@@ -4573,6 +4587,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗагрузитьНажатие</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="Выполнить" id="4">
 			<Title>
@@ -4588,6 +4603,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ВыполнитьКнопка</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="Период" id="5">
 			<Title>
@@ -4603,6 +4619,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Период</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="КонтрагентыСоздать" id="6">
 			<Title>
@@ -4618,6 +4635,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КонтрагентыСоздать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="КонтрагентыСоздатьВсех" id="7">
 			<Title>
@@ -4633,6 +4651,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КонтрагентыСоздатьВсех</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="КонтрагентыЗаполнить" id="8">
 			<Title>
@@ -4648,6 +4667,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КонтрагентыЗаполнить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="КонтрагентыОчистить" id="9">
 			<Title>
@@ -4663,6 +4683,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КонтрагентыОчистить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="НоменклатураСоздать" id="10">
 			<Title>
@@ -4678,6 +4699,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>НоменклатураСоздать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="НоменклатураСоздатьВсе" id="11">
 			<Title>
@@ -4693,6 +4715,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>НоменклатураСоздатьВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ЗаполнитьНоменклатура" id="12">
 			<Title>
@@ -4708,6 +4731,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаполнитьНоменклатура</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ОчиститьНоменклатура" id="13">
 			<Title>
@@ -4723,6 +4747,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ОчиститьНоменклатура</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ГруппировкаСоздать" id="14">
 			<Title>
@@ -4738,6 +4763,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ГруппировкаСоздать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ГруппировкаСоздатьВсе" id="15">
 			<Title>
@@ -4753,6 +4779,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ГруппировкаСоздатьВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ЗаполнитьГруппировка" id="16">
 			<Title>
@@ -4768,6 +4795,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаполнитьГруппировка</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ОчиститьГруппировка" id="17">
 			<Title>
@@ -4782,6 +4810,7 @@
 					<v8:content>Очистить группировка</v8:content>
 				</v8:item>
 			</ToolTip>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="СкладыСоздать" id="18">
 			<Title>
@@ -4797,6 +4826,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СкладыСоздать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="СкладыСоздатьВсе" id="19">
 			<Title>
@@ -4812,6 +4842,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СкладыСоздатьВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="СкладыЗаполнить" id="20">
 			<Title>
@@ -4827,8 +4858,11 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СкладыЗаполнить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
-		<Command name="Команда1" id="21"/>
+		<Command name="Команда1" id="21">
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
 		<Command name="СкладыОчистить" id="22">
 			<Title>
 				<v8:item>
@@ -4843,6 +4877,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СкладыОчистить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="Настройки" id="23">
 			<Title>
@@ -4858,6 +4893,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Настройки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="КнопкаСохранить" id="24">
 			<Title>
@@ -4873,6 +4909,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>КнопкаСохранить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="СохранитьНастройки" id="25">
 			<Title>
@@ -4888,6 +4925,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СохранитьНастройки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 	<Parameters>

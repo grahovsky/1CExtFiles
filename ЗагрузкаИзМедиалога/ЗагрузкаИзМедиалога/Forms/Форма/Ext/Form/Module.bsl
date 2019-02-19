@@ -7889,57 +7889,6 @@
 	
 	//Состояние("Заполнение документов");	
 	// Теперь, имея таблицу единиц измерения, можно грузить
-		// + Байдин 2019.01.17 
-		ЗапросСуммаБезНДС = "ROUND((
-							|(ROUND(DM_TRANSFERS.QUANTITY* (ROUND(DM_LOTS.SALE_SUM* DM_TRANSFERS.MEASURE_FACTOR,2)),2))-
-							|(ROUND(DM_TRANSFERS.QUANTITY* (ROUND(DM_LOTS.SALE_SUM* DM_TRANSFERS.MEASURE_FACTOR,2)),2))*
-							|(select top 1 FTD2418.TAXE_PERC
-							|from FM_TAXE_DET FTD2418
-							|where FTD2418.FM_TAXE_ID=(
-							|       select FTD3529.FM_TAXE_ID
-							|       from FM_TAXE_DET FTD3529
-							|       where FTD3529.FM_TAXE_DET_ID=DM_LOTS.FM_TAXE_DET_OUT_ID
-							|)
-							|and FTD2418.DATE_FROM<=GETDATE()
-							|order by FTD2418.DATE_FROM desc)
-							|/
-							|(100+(select top 1 FTD2418.TAXE_PERC
-							|from FM_TAXE_DET FTD2418
-							|where FTD2418.FM_TAXE_ID=(
-							|       select FTD3529.FM_TAXE_ID
-							|       from FM_TAXE_DET FTD3529
-							|       where FTD3529.FM_TAXE_DET_ID=DM_LOTS.FM_TAXE_DET_OUT_ID
-							|)
-							|and FTD2418.DATE_FROM<=GETDATE()
-							|order by FTD2418.DATE_FROM desc))
-							|), 2)
-							|";
-		ЗапросСуммаНДС 	  = "ROUND((
-							|(
-							|ROUND(DM_TRANSFERS.QUANTITY* (ROUND(DM_LOTS.SALE_SUM* DM_TRANSFERS.MEASURE_FACTOR,2)),2)
-							|)*
-							|(select top 1 FTD2418.TAXE_PERC
-							|from FM_TAXE_DET FTD2418
-							|where FTD2418.FM_TAXE_ID=(
-							|       select FTD3529.FM_TAXE_ID
-							|       from FM_TAXE_DET FTD3529
-							|       where FTD3529.FM_TAXE_DET_ID=DM_LOTS.FM_TAXE_DET_OUT_ID
-							|)
-							|and FTD2418.DATE_FROM<=GETDATE()
-							|order by FTD2418.DATE_FROM desc)
-							|/
-							|(100+(select top 1 FTD2418.TAXE_PERC
-							|from FM_TAXE_DET FTD2418
-							|where FTD2418.FM_TAXE_ID=(
-							|       select FTD3529.FM_TAXE_ID
-							|       from FM_TAXE_DET FTD3529
-							|       where FTD3529.FM_TAXE_DET_ID=DM_LOTS.FM_TAXE_DET_OUT_ID
-							|)
-							|and FTD2418.DATE_FROM<=GETDATE()
-							|order by FTD2418.DATE_FROM desc))
-							|), 2)
-							|";
-		// - Байдин 2019.01.17
 	Попытка
 		
 		Recordset = Новый COMОбъект("ADODB.Recordset");	
@@ -7947,7 +7896,6 @@
 		//СО - 2 вставки - поля + 2 левых соединения
 		//РА - 2 вставки - поля + левое соединение
 		//РА2
-		
 		ТекстЗапроса = "SELECT 
 		|	DM_DOC.DM_DOC_ID,
 		|	DM_DOC.DOC_NUM,
@@ -7974,16 +7922,10 @@
 		|	DM_LOTS.FM_TAXE_IN_ID AS NDS,
 		|	DM_LOTS.PRICE,
 		|	DM_TRANSFERS.QUANTITY,
-		|" + 
-		//|	DM_TRANSFERS.SUM_WOUT_NDS,
-		//|	DM_TRANSFERS.SUM_NDS,"
-		ЗапросСуммаБезНДС + " AS SUM_WOUT_NDS,
-		|" +
-		ЗапросСуммаНДС + " AS SUM_NDS,
-		//|	DM_TRANSFERS.SUM_WOUT_NDS,
-		//|	DM_TRANSFERS.SUM_NDS,
+		|	DM_TRANSFERS.SUM_WOUT_NDS,
+		|	DM_TRANSFERS.SUM_NDS,
 		|	DM_TRANSFERS.NDS_IN_MONEY,
-		|	DM_TRANSFERS.SALE_SUM,  
+		|	DM_TRANSFERS.SALE_SUM,
 		|   DM_TRANSFERS.TRANSFERS_SUM,
 		|   DM_TRANSFERS.TRANSFERS_NDS,
 		|	ISNULL(DM_TRANSFERS.CHECK_NUM,0) AS CHECK_NUM,
@@ -8282,8 +8224,7 @@
 			
 						
 			// Определение ставки ндс
-		    //НДС = ПолучитьНДСвВидеЧисла(ПолучитьВВидеЧисла(Recordset.Fields("SUM_WOUT_NDS").Value),ПолучитьВВидеЧисла(Recordset.Fields("NDS_IN_MONEY").Value), Recordset.Fields("DateDoc").Value);
-		    НДС = ПолучитьНДСвВидеЧисла(ПолучитьВВидеЧисла(Recordset.Fields("SUM_WOUT_NDS").Value),ПолучитьВВидеЧисла(Recordset.Fields("SUM_NDS").Value), Recordset.Fields("DateDoc").Value);
+		    НДС = ПолучитьНДСвВидеЧисла(ПолучитьВВидеЧисла(Recordset.Fields("SUM_WOUT_NDS").Value),ПолучитьВВидеЧисла(Recordset.Fields("NDS_IN_MONEY").Value), Recordset.Fields("DateDoc").Value);
 			
 			НоваяСтрокаТоваров.НДС = НДС;
 			
@@ -10536,8 +10477,9 @@
 	КонецЕсли;
 	
     // + Байдин 2018.10.09 
-    Если Объект.ИдСтраховойКомпании = 0 Тогда
-        Сообщить("Не заполнен код Медиалога для страховой компании (справочник ""Соответствие контрагентов"")");
+	Если Объект.ИдСтраховойКомпании = 0 Тогда
+		//СообщитьОНесопоставленныхСК();
+        //Сообщить("Не заполнен код Медиалога для страховой компании (справочник ""Соответствие контрагентов"")");
         ОтказПоСтраховой = Истина;
     КонецЕсли; 
     
@@ -11989,9 +11931,26 @@
 		
 КонецПроцедуры // ЗаполнитьСсылкиДокументов1СпоСтраховымКомпаниям()
 
+&НаСервере
+Процедура СообщитьОНесопоставленныхСК()
+	
+	Сообщить("Не заполнен код Медиалога для страховой компании (справочник ""Соответствие контрагентов""), документы не могут быть загружены." + Символы.ПС + 
+		"Перейдите на вкладку ""Талоны"" и попробуйте загрузить сначала их (по страховым компаниям).");
+	
+КонецПроцедуры
+	
 &НаКлиенте
 Процедура СтраховыеКомпании_Загрузить(Команда)
+	
+    // + Байдин 2019.02.19 
+	Если Объект.ИдСтраховойКомпании = 0 Тогда
+		СообщитьОНесопоставленныхСК();
+		Возврат;
+    КонецЕсли; 
+    // - Байдин 2019.02.19
+	
 	СтраховыеКомпании_ЗагрузитьНаСервере();
+	
 КонецПроцедуры
 
 &НаКлиенте
@@ -12014,7 +11973,7 @@
         // - Байдин 2018.10.09
 		Объект.НаименованиеМедиалогСтрКомпании = "";
 		ЭтаФорма.НадписьНаименованиеМедиалог = Объект.НаименованиеМедиалогСтрКомпании;
-		Возврат;	
+		//Возврат;	
 	КонецЕсли; 
 	
 	Запрос = Новый Запрос;
@@ -12032,7 +11991,12 @@
 		Ид = Выборка.Ид;
 	КонецЕсли; 
 	
-	Если Ид <> 0 Тогда
+	Если Ид = 0 Тогда
+		СообщитьОНесопоставленныхСК();
+		Возврат;
+	КонецЕсли;
+	
+	//Если Ид <> 0 Тогда
 		// Слазить в Медиалог, взять название контрагента
 		
 		COMОбъектConnection = ОбработкаОбъект.ПолучитьСоединение();
@@ -12095,7 +12059,7 @@
 		КонецПопытки;	
 
 	    //COMОбъектConnection = Неопределено;
-	КонецЕсли; 
+	//КонецЕсли; 
 	
 КонецПроцедуры
 

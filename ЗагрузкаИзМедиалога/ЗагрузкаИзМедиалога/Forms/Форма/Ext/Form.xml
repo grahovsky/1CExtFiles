@@ -2703,7 +2703,6 @@
 						</v8:item>
 					</Title>
 					<Type>
-						<v8:Type>cfg:CatalogRef.Склады</v8:Type>
 						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
 					</Type>
 				</Column>
@@ -2900,7 +2899,11 @@
 						</v8:item>
 					</Title>
 					<Type>
-						<v8:Type>cfg:CatalogRef.ПодразделенияОрганизаций</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
 					</Type>
 				</Column>
 			</Columns>
@@ -3558,7 +3561,11 @@
 						</v8:item>
 					</Title>
 					<Type>
-						<v8:Type>cfg:CatalogRef.Склады</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
 					</Type>
 				</Column>
 			</Columns>
@@ -3613,7 +3620,11 @@
 						</v8:item>
 					</Title>
 					<Type>
-						<v8:Type>cfg:CatalogRef.Склады</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
 					</Type>
 				</Column>
 			</Columns>
@@ -3926,7 +3937,11 @@
 						</v8:item>
 					</Title>
 					<Type>
-						<v8:Type>cfg:CatalogRef.Склады</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
 					</Type>
 				</Column>
 				<Column name="СпособОтраженияРасходов" id="2">
@@ -3937,7 +3952,11 @@
 						</v8:item>
 					</Title>
 					<Type>
-						<v8:Type>cfg:CatalogRef.СпособыОтраженияРасходовПоАмортизации</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
 					</Type>
 				</Column>
 			</Columns>
@@ -3961,7 +3980,11 @@
 						</v8:item>
 					</Title>
 					<Type>
-						<v8:Type>cfg:CatalogRef.Склады</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
 					</Type>
 				</Column>
 				<Column name="Способ" id="2">
@@ -3972,7 +3995,11 @@
 						</v8:item>
 					</Title>
 					<Type>
-						<v8:Type>cfg:CatalogRef.СпособыОтраженияРасходовПоАмортизации</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
 					</Type>
 				</Column>
 			</Columns>

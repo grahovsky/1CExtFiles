@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.7">
-	<ExternalReport uuid="bf11ca2c-607e-4eaa-9d71-839a3a27c716">
+	<ExternalReport uuid="5798143e-648f-478c-aacc-7327500c7958">
 		<InternalInfo>
 			<xr:ContainedObject>
 				<xr:ClassId>e41aff26-25cf-4bb6-b6c1-3f478a75f374</xr:ClassId>
-				<xr:ObjectId>e81d5d2c-cb97-4468-a51c-136f7f0b02e7</xr:ObjectId>
+				<xr:ObjectId>c03c0b32-fa59-4453-8451-7ee34e577efd</xr:ObjectId>
 			</xr:ContainedObject>
 			<xr:GeneratedType name="ExternalReportObject.КонтрольРабочегоВремени" category="Object">
-				<xr:TypeId>3f032e6c-9e9d-4237-9c46-112eb7d26169</xr:TypeId>
-				<xr:ValueId>dfde8196-9e05-4c5c-a1c1-8df5bab2cadb</xr:ValueId>
+				<xr:TypeId>7bdbe789-4a7d-4944-a897-2a337f438582</xr:TypeId>
+				<xr:ValueId>ad85b47e-e2a7-4c3c-b04d-bac79554f84f</xr:ValueId>
 			</xr:GeneratedType>
 		</InternalInfo>
 		<Properties>
@@ -30,7 +30,7 @@
 			<SettingsStorage/>
 		</Properties>
 		<ChildObjects>
-			<Attribute uuid="0ba8ccc3-82b5-4733-8f6a-bce740e09349">
+			<Attribute uuid="8a8a864a-c99f-4303-9688-1e6fb3af1989">
 				<Properties>
 					<Name>НачалоПериода</Name>
 					<Synonym>
@@ -67,7 +67,7 @@
 					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
 				</Properties>
 			</Attribute>
-			<Attribute uuid="d9978f83-eb42-418f-b290-4b34aadf0a18">
+			<Attribute uuid="07e33e3e-77de-44cc-8dec-dd4deb85bdae">
 				<Properties>
 					<Name>КонецПериода</Name>
 					<Synonym>

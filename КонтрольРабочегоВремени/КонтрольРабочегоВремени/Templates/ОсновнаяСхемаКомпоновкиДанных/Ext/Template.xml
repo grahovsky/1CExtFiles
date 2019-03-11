@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВремяРаботы</dataPath>
+			<field>ВремяРаботы</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КлассификаторВремени</dataPath>
+			<field>КлассификаторВремени</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонецДня</dataPath>
+			<field>КонецДня</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачалоДня</dataPath>
+			<field>НачалоДня</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сотрудник</dataPath>
+			<field>Сотрудник</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЦФО</dataPath>
+			<field>ЦФО</field>
+			<inputParameters>
+				<dcscor:item>
+					<dcscor:parameter>ПараметрыВыбора</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:ChoiceParameters">
+						<dcscor:item>
+							<dcscor:choiceParameter>ФормаВыбора</dcscor:choiceParameter>
+							<dcscor:value xsi:type="xs:string">ФормаВыбораДляГрафиков</dcscor:value>
+						</dcscor:item>
+					</dcscor:value>
+				</dcscor:item>
+			</inputParameters>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Показатель</dataPath>
+			<field>Показатель</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидВремени</dataPath>
+			<field>ВидВремени</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СотрудникДляОтбора</dataPath>
+			<field>СотрудникДляОтбора</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сотрудник</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГруппаПерсонала</dataPath>
+			<field>ГруппаПерсонала</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Должность</dataPath>
+			<field>Должность</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	СпрЦФО.Ссылка КАК ЦФО
+ПОМЕСТИТЬ РазрешенныеЦФО
+ИЗ
+	Справочник.ЦФО КАК СпрЦФО
+ГДЕ
+	СпрЦФО.Ссылка В(&amp;ДоступныеЦФО)
+
+ОБЪЕДИНИТЬ
+
+ВЫБРАТЬ
+	ЗНАЧЕНИЕ(Справочник.ЦФО.ПустаяСсылка)
+ГДЕ
+	&amp;ПолныеПрава
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ВложенныйЗапрос.ОснСотрудник КАК ОснСотрудник,
+	ВложенныйЗапрос.Должность КАК Должность,
+	ВложенныйЗапрос.ГруппаПерсонала КАК ГруппаПерсонала
+ПОМЕСТИТЬ СотрудникиДляОтбора
+ИЗ
+	(ВЫБРАТЬ РАЗЛИЧНЫЕ
+		РаботникиОрганизацийСрезПоследних.Сотрудник.ОснСотрудник КАК ОснСотрудник,
+		РаботникиОрганизацийСрезПоследних.Должность КАК Должность,
+		РаботникиОрганизацийСрезПоследних.Должность.ГруппаПерсонала КАК ГруппаПерсонала
+	ИЗ
+		РегистрСведений.РаботникиОрганизаций.СрезПоследних(&amp;НачалоПериода, ) КАК РаботникиОрганизацийСрезПоследних
+	ГДЕ
+		РаботникиОрганизацийСрезПоследних.Сотрудник = РаботникиОрганизацийСрезПоследних.Сотрудник.ОснСотрудник
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ РАЗЛИЧНЫЕ
+		РаботникиОрганизацийСрезПоследних.Сотрудник.ОснСотрудник,
+		РаботникиОрганизацийСрезПоследних.Должность,
+		РаботникиОрганизацийСрезПоследних.Должность.ГруппаПерсонала
+	ИЗ
+		РегистрСведений.РаботникиОрганизаций.СрезПоследних(&amp;ОкончаниеПериода, ) КАК РаботникиОрганизацийСрезПоследних
+	ГДЕ
+		РаботникиОрганизацийСрезПоследних.Сотрудник = РаботникиОрганизацийСрезПоследних.Сотрудник.ОснСотрудник
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ РАЗЛИЧНЫЕ
+		РаботникиОрганизаций.Сотрудник.ОснСотрудник,
+		РаботникиОрганизаций.Должность,
+		РаботникиОрганизаций.Должность.ГруппаПерсонала
+	ИЗ
+		РегистрСведений.РаботникиОрганизаций КАК РаботникиОрганизаций
+	ГДЕ
+		РаботникиОрганизаций.Сотрудник = РаботникиОрганизаций.Сотрудник.ОснСотрудник
+		И РаботникиОрганизаций.Период МЕЖДУ &amp;НачалоПериода И &amp;ОкончаниеПериода) КАК ВложенныйЗапрос
+{ГДЕ
+	ВложенныйЗапрос.ОснСотрудник КАК СотрудникДляОтбора,
+	ВложенныйЗапрос.Должность КАК Должность,
+	ВложенныйЗапрос.ГруппаПерсонала КАК ГруппаПерсонала}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	"График" КАК Показатель,
+	ОтработанноеВремя.Организация КАК Организация,
+	ОтработанноеВремя.Сотрудник.ОснСотрудник КАК Сотрудник,
+	ОтработанноеВремя.ВидВремени КАК ВидВремени,
+	ОтработанноеВремя.КлассификаторВремени КАК КлассификаторВремени,
+	СУММА(ОтработанноеВремя.ВремяРаботы) КАК ВремяРаботы,
+	МИНИМУМ(ОтработанноеВремя.НачалоДня) КАК НачалоДня,
+	МАКСИМУМ(ОтработанноеВремя.КонецДня) КАК КонецДня,
+	ОтработанноеВремя.Период КАК Период,
+	Рег.ЦФО КАК ЦФО
+ИЗ
+	РегистрНакопления.ОтработанноеВремя КАК ОтработанноеВремя
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.РаботникиОрганизаций.СрезПоследних(&amp;ОкончаниеПериода, ) КАК Рег
+		ПО (Рег.Сотрудник = ОтработанноеВремя.Сотрудник)
+			И (Рег.Организация = ОтработанноеВремя.Организация)
+ГДЕ
+	ОтработанноеВремя.ВидВремени = 0
+	И Рег.ЦФО В
+			(ВЫБРАТЬ
+				РазрешенныеЦФО.ЦФО
+			ИЗ
+				РазрешенныеЦФО)
+	И ОтработанноеВремя.Сотрудник.ОснСотрудник В
+			(ВЫБРАТЬ
+				СотрудникиДляОтбора.ОснСотрудник
+			ИЗ
+				СотрудникиДляОтбора КАК СотрудникиДляОтбора)
+{ГДЕ
+	(ОтработанноеВремя.Период МЕЖДУ &amp;НачалоПериода И &amp;ОкончаниеПериода)}
+
+СГРУППИРОВАТЬ ПО
+	ОтработанноеВремя.Организация,
+	ОтработанноеВремя.Сотрудник.ОснСотрудник,
+	ОтработанноеВремя.ВидВремени,
+	ОтработанноеВремя.КлассификаторВремени,
+	ОтработанноеВремя.Период,
+	Рег.ЦФО
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	"Проходная",
+	ДанныеПроходной.Организация,
+	ДанныеПроходной.Сотрудник.ОснСотрудник,
+	0,
+	NULL,
+	СУММА(ДанныеПроходной.ВремяРаботы),
+	МИНИМУМ(ДанныеПроходной.НачалоДня),
+	МАКСИМУМ(ДанныеПроходной.КонецДня),
+	ДанныеПроходной.Дата,
+	Рег.ЦФО
+ИЗ
+	РегистрСведений.ДанныеПроходной КАК ДанныеПроходной
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.РаботникиОрганизаций.СрезПоследних(&amp;ОкончаниеПериода, ) КАК Рег
+		ПО (Рег.Сотрудник = ДанныеПроходной.Сотрудник)
+			И (Рег.Организация = ДанныеПроходной.Организация)
+ГДЕ
+	ДанныеПроходной.ВремяРаботы &gt; 0
+	И Рег.ЦФО В
+			(ВЫБРАТЬ
+				РазрешенныеЦФО.ЦФО
+			ИЗ
+				РазрешенныеЦФО)
+	И ДанныеПроходной.Сотрудник.ОснСотрудник В
+			(ВЫБРАТЬ
+				СотрудникиДляОтбора.ОснСотрудник
+			ИЗ
+				СотрудникиДляОтбора КАК СотрудникиДляОтбора)
+{ГДЕ
+	(ДанныеПроходной.Дата МЕЖДУ &amp;НачалоПериода И &amp;ОкончаниеПериода)}
+
+СГРУППИРОВАТЬ ПО
+	ДанныеПроходной.Организация,
+	ДанныеПроходной.Сотрудник.ОснСотрудник,
+	ДанныеПроходной.Дата,
+	Рег.ЦФО
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	"Командировка",
+	События.Организация,
+	События.Сотрудник.ОснСотрудник,
+	События.ВидВремени,
+	События.Событие,
+	0,
+	События.Дата1,
+	События.Дата2,
+	НАЧАЛОПЕРИОДА(События.Дата1, ДЕНЬ),
+	Рег.ЦФО
+ИЗ
+	РегистрСведений.ГрафикиРаботыСобытия КАК События
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.РаботникиОрганизаций.СрезПоследних(&amp;ОкончаниеПериода, ) КАК Рег
+		ПО (Рег.Сотрудник = События.Сотрудник)
+			И (Рег.Организация = События.Организация)
+ГДЕ
+	События.ТипСобытия = "Командировка"
+	И Рег.ЦФО В
+			(ВЫБРАТЬ
+				РазрешенныеЦФО.ЦФО
+			ИЗ
+				РазрешенныеЦФО)
+	И События.Согласовано
+	И События.Сотрудник.ОснСотрудник В
+			(ВЫБРАТЬ
+				СотрудникиДляОтбора.ОснСотрудник
+			ИЗ
+				СотрудникиДляОтбора КАК СотрудникиДляОтбора)
+{ГДЕ
+	(События.Дата1 МЕЖДУ &amp;НачалоПериода И &amp;ОкончаниеПериода)}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	"Командировка1",
+	События.Организация,
+	События.Сотрудник.ОснСотрудник,
+	События.ВидВремени,
+	События.Событие,
+	0,
+	События.Дата1,
+	События.Дата2,
+	НАЧАЛОПЕРИОДА(События.Дата1, ДЕНЬ),
+	Рег.ЦФО
+ИЗ
+	РегистрСведений.ГрафикиРаботыСобытия КАК События
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.РаботникиОрганизаций.СрезПоследних(&amp;ОкончаниеПериода, ) КАК Рег
+		ПО (Рег.Сотрудник = События.Сотрудник)
+			И (Рег.Организация = События.Организация)
+ГДЕ
+	События.ТипСобытия = "Командировка1"
+	И Рег.ЦФО В
+			(ВЫБРАТЬ
+				РазрешенныеЦФО.ЦФО
+			ИЗ
+				РазрешенныеЦФО)
+	И События.Согласовано
+	И События.Сотрудник.ОснСотрудник В
+			(ВЫБРАТЬ
+				СотрудникиДляОтбора.ОснСотрудник
+			ИЗ
+				СотрудникиДляОтбора КАК СотрудникиДляОтбора)
+{ГДЕ
+	(События.Дата1 МЕЖДУ &amp;НачалоПериода И &amp;ОкончаниеПериода)}</query>
+	</dataSet>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ОкончаниеПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Окончание периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>КонецПериода(&amp;ОкончаниеПериода,"День")</expression>
+	</parameter>
+	<parameter>
+		<name>ПолныеПрава</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Полные права</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДоступныеЦФО</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Доступные ЦФО</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВремяРаботы</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонецДня</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НачалоДня</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Организация</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сотрудник</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЦФО</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КлассификаторВремени</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Период</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Показатель</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ЦФО</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СотрудникДляОтбора</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Должность</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ГруппаПерсонала</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

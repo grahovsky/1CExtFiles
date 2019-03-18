@@ -78,48 +78,6 @@
 			<CommandName>Form.Command.СоздатьЗаявкиВSD</CommandName>
 			<ExtendedTooltip name="СоздатьЗаявкиВSDРасширеннаяПодсказка" id="23"/>
 		</Button>
-		<Table name="ДанныеJSONДерево" id="30">
-			<Representation>Tree</Representation>
-			<AutoInsertNewRow>true</AutoInsertNewRow>
-			<EnableStartDrag>true</EnableStartDrag>
-			<EnableDrag>true</EnableDrag>
-			<DataPath>ДанныеJSONДерево</DataPath>
-			<ContextMenu name="ДанныеJSONДеревоКонтекстноеМеню" id="31"/>
-			<AutoCommandBar name="ДанныеJSONДеревоКоманднаяПанель" id="32"/>
-			<ExtendedTooltip name="ДанныеJSONДеревоРасширеннаяПодсказка" id="33"/>
-			<SearchStringAddition name="ДанныеJSONДеревоСтрокаПоиска" id="34">
-				<AdditionSource>
-					<Item>ДанныеJSONДерево</Item>
-					<Type>SearchStringRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="ДанныеJSONДеревоСтрокаПоискаКонтекстноеМеню" id="35"/>
-				<ExtendedTooltip name="ДанныеJSONДеревоСтрокаПоискаРасширеннаяПодсказка" id="36"/>
-			</SearchStringAddition>
-			<ViewStatusAddition name="ДанныеJSONДеревоСостояниеПросмотра" id="37">
-				<AdditionSource>
-					<Item>ДанныеJSONДерево</Item>
-					<Type>ViewStatusRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="ДанныеJSONДеревоСостояниеПросмотраКонтекстноеМеню" id="38"/>
-				<ExtendedTooltip name="ДанныеJSONДеревоСостояниеПросмотраРасширеннаяПодсказка" id="39"/>
-			</ViewStatusAddition>
-			<SearchControlAddition name="ДанныеJSONДеревоУправлениеПоиском" id="40">
-				<AdditionSource>
-					<Item>ДанныеJSONДерево</Item>
-					<Type>SearchControl</Type>
-				</AdditionSource>
-				<ContextMenu name="ДанныеJSONДеревоУправлениеПоискомКонтекстноеМеню" id="41"/>
-				<ExtendedTooltip name="ДанныеJSONДеревоУправлениеПоискомРасширеннаяПодсказка" id="42"/>
-			</SearchControlAddition>
-			<ChildItems>
-				<InputField name="ДанныеJSONДеревоСтрока" id="43">
-					<DataPath>ДанныеJSONДерево.Строка</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="ДанныеJSONДеревоСтрокаКонтекстноеМеню" id="44"/>
-					<ExtendedTooltip name="ДанныеJSONДеревоСтрокаРасширеннаяПодсказка" id="45"/>
-				</InputField>
-			</ChildItems>
-		</Table>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
